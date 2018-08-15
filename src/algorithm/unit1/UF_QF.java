@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.unit1;
 
 public class UF_QF {
 	private int N;
