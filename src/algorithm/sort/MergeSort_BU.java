@@ -30,6 +30,8 @@ public class MergeSort_BU {
 		{
 			for (int low= 0;low < list.length-size ;low += size*2)
 			{
+				/* When integer low is smaller than n-size, we go on;
+			 	if not, merge [low...low+size-1] and [low+size,list.length-1];*/
 				merge(low, low+size-1, Math.min(low+size*2-1, list.length-1));
 			}
 		}
