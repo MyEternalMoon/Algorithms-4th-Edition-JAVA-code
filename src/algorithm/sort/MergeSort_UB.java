@@ -1,5 +1,5 @@
 package algorithm.sort;
-// Undone
+
 public class MergeSort_UB {
 	private int[] list;
 	private int[] list_support;

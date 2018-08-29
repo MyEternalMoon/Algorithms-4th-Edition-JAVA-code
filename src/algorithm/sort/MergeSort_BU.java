@@ -1,6 +1,5 @@
 package algorithm.sort;
 
-import org.omg.CORBA.IRObject;
 
 public class MergeSort_BU {
 	private int[] list;
