@@ -93,6 +93,24 @@ public class BinarySearchTree {
 		}			
 	}
 	
+	public String maxKey(Node root)
+	{
+		if (root == null){return null;}
+		else {
+			if (root.right == null) {return root.key;}
+			else return maxKey(root.right);
+		}
+	}
+	public String minKey(Node root)
+	{
+		if (root == null){return null;}
+		else 
+		{
+			if (root.left == null) {return root.key;}
+			else return minKey(root.left);
+		}
+	}
+	
 	public static void main(String[] args)
 	{
 		BinarySearchTree BST = new BinarySearchTree();
