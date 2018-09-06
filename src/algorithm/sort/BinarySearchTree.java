@@ -1,6 +1,17 @@
 package algorithm.sort;
+import java.util.Iterator;
 
-public class BinarySearchTree {
+import javax.swing.RootPaneContainer;
+
+import org.omg.CORBA.PRIVATE_MEMBER;
+
+public class BinarySearchTree implements Iterable<String>{
+	public Iterator<String> iterator()
+	{
+		BSTIterator a = new BSTIterator(Size());
+		addNodes(a, root);
+		return a;	
+	}
 	private Node root;
 	private class Node{
 		private String key;
@@ -26,7 +37,32 @@ public class BinarySearchTree {
 		if (n == null) return 0;
 		else return n.N;
 	}
-	
+	private class BSTIterator implements Iterator<String>
+	{
+		private String[] nodes;
+		private int N;
+		private int index;
+		public void add(String a)
+		{
+			nodes[N-index] = a;
+			index --;
+		}
+		public BSTIterator(int N) 
+		{
+			nodes = new String[N];
+			this.index = N;
+			this.N = N;
+		}	
+		public String next()
+		{
+			String a = nodes[index++];
+			return a;	
+		}
+		public boolean hasNext()
+		{
+			return index != N; 
+		}
+	}
 	private Node find(Node root, String key)
 	{
 		if (root == null) return null;
@@ -92,7 +128,16 @@ public class BinarySearchTree {
 			traverse(root.right);
 		}			
 	}
-	
+	public void addNodes(BSTIterator a, Node root)
+	{
+		if (root != null)
+		{
+			a.add(root.key);
+			addNodes(a, root.left);
+			addNodes(a, root.right);
+		}
+		
+	}
 	public String maxKey(Node root)
 	{
 		if (root == null){return null;}
@@ -123,6 +168,11 @@ public class BinarySearchTree {
 		BST.put("C", 94153);
 		System.out.println(BST.get("A"));
 		System.out.println(BST.Size());
+		System.out.println(BST.minKey(BST.root));
+		System.out.println(BST.maxKey(BST.root));
 		BST.traverse();
+		for(String i:BST){
+			System.out.println(i);
+		}
 	}
 }
