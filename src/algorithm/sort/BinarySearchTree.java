@@ -110,7 +110,6 @@ public class BinarySearchTree {
 			else return minKey(root.left);
 		}
 	}
-	
 	public static void main(String[] args)
 	{
 		BinarySearchTree BST = new BinarySearchTree();
